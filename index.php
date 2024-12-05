@@ -5,6 +5,7 @@ if (session_status() === PHP_SESSION_NONE) {
 require_once './config/Config.php';
 require_once APP_ROOT . '/controllers/HomeController.php';
 require_once APP_ROOT . '/controllers/AdminController.php';
+require_once APP_ROOT . '/controllers/NewsController.php';
 $controller = $_GET['controller'] ?? 'home';
 $action = $_GET['action'] ?? 'index';
 
@@ -14,6 +15,9 @@ switch ($controller) {
         break;
     case 'admin':
         $controllerObj = new AdminController();
+        break;
+    case 'news':
+        $controllerObj = new NewsController();
         break;
     default:
         die("Controller không tồn tại");
