@@ -18,7 +18,7 @@
             </div>
             <div class="mb-3">
                 <label for="image">Ảnh hiện tại:</label><br>
-                <img src="<?php echo BASE_URL; ?>/public/images/<?php echo $new['image']; ?>" height="200px"><br><br>
+                <img src="<?php echo BASE_URL; ?>/public/images/<?php echo $new['image']; ?>" height="150px"><br><br>
             </div>
             <div class="mb-3">
                 <label for="image">Chọn Ảnh Mới:</label>

@@ -24,4 +24,9 @@ class News {
         $stmt->bind_param('ssss', $title, $content, $image, $id);
         $stmt->execute();
     }
+    public function create($title, $content, $image, $categoryId){
+        $stmt = $this->db->prepare("INSERT INTO `news`(`title`, `content`, `image`, `created_at`, `categories_id`) VALUES (?, ?, ?, now(), ?)");
+        $stmt->bind_param('ssss', $title, $content, $image, $categoryId);
+        $stmt->execute();
+    }
 }

@@ -1,6 +1,8 @@
 <?php
 
 require_once APP_ROOT . '/models/News.php'; 
+require_once APP_ROOT . '/models/Categories.php'; 
+
 class NewsController {
     public function index() {
         include APP_ROOT . '/config/Auth.php';
@@ -10,8 +12,9 @@ class NewsController {
     }
     public function create() {
         include APP_ROOT . '/config/Auth.php';
-        $newsModel = new News();
-        // viết logic
+        $categoriesModel = new Categories();
+        $categories = $categoriesModel->getAllCategories();
+        include APP_ROOT . '/views/admin/news/add.php'; 
     }
     public function update() {
         include APP_ROOT . '/config/Auth.php';
