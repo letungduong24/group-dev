@@ -10,6 +10,7 @@
         <h1>TLU News</h1>
     </div>
     <div class="content">
+        <?php if(isset($news)){ ?>
         <?php foreach ($news as $item): ?>
             <div class="post shadow-lg">
             <img class="img-post" src="<?php echo BASE_URL; ?>/public/images/<?php echo $item['image']; ?>" alt="Image not found">
@@ -23,6 +24,7 @@
                 </div>
             </div>
         <?php endforeach; ?>
+        <?php } ?>
     </div>
 </body>
 

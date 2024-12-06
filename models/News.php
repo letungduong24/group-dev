@@ -29,4 +29,16 @@ class News {
         $stmt->bind_param('ssss', $title, $content, $image, $categoryId);
         $stmt->execute();
     }
+    public function delete($id){
+        $stmt = $this->db->prepare("delete from news where id=?");
+        $stmt->bind_param('s', $id);
+        $stmt->execute();
+    }
+    public function search($search) {
+        $search = "%" . $search . "%";
+        $stmt = $this->db->prepare("SELECT * FROM news WHERE title LIKE ? OR content LIKE ?");
+        $stmt->bind_param('ss', $search, $search);
+        $stmt->execute();
+        return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+    }
 }

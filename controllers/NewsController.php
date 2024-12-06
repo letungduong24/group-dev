@@ -10,6 +10,16 @@ class NewsController {
         $news = $newsModel->getAllNews();
         include APP_ROOT . '/views/admin/news/index.php'; 
     }
+
+    public function show() {
+        include APP_ROOT . '/config/Auth.php';
+        $newsModel = new News();
+        $new = $newsModel->getOneNew($_GET['id']);
+        $categoriesModel = new Categories();
+        $categories = $categoriesModel->getAllCategories();
+        include APP_ROOT . '/views/news/detail.php'; 
+    }
+
     public function create() {
         include APP_ROOT . '/config/Auth.php';
         $categoriesModel = new Categories();
@@ -25,6 +35,18 @@ class NewsController {
     public function delete() {
         include APP_ROOT . '/config/Auth.php';
         $newsModel = new News();
-        $newsModel->getAllNews();
+        $new = $newsModel->getOneNew($_GET['id']);
+        include APP_ROOT . '/views/admin/news/delete.php';
+    }
+    public function search() {
+        include APP_ROOT . '/config/Auth.php';
+        $newsModel = new News();
+        $new = [];
+        if(isset($_POST['search'])){
+            $news = $newsModel->search($_POST['search']);
+        }
+        $categoriesModel = new Categories();
+        $categories = $categoriesModel->getAllCategories();
+        include APP_ROOT . '/views/news/search.php'; 
     }
 }
