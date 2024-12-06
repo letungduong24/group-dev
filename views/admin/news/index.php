@@ -6,7 +6,10 @@
 <body>
     <?php include APP_ROOT . '/views/partials/navbar.php'; ?>
     <div class="">
-        <h1>Quản lý bài viết</h1>
+        <div class="heading-news d-flex justify-content-between">
+            <h1>Quản lý bài viết</h1>
+            <a class="btn btn-success d-flex align-items-center" href="<?php echo BASE_URL?>/?controller=news&action=create">Thêm bài viết</a>
+        </div>
         <table class="table">
             <thead>
                 <tr>
@@ -26,10 +29,8 @@
                     <td><?php echo $new['image'] ?></td>
                     <td>
                         <div class="action-news d-flex">
-                            <form action="">
-                                <button type="submit" class="btn btn-danger">Xóa</button>
-                            </form>
-                            <a href="" class="btn btn-warning ms-2">Sửa</a>
+                            <a href="<?php echo BASE_URL?>/?controller=news&action=update&id=<?php echo $new['id']?>" class="btn btn-warning ms-2">Sửa</a>
+                            <a href="<?php echo BASE_URL?>/?controller=news&action=delete&id=gi<?php echo $new['id']?>" class="btn btn-warning ms-2">Xóa</a>
                         </div>
                     </td>
                 </tr>  
