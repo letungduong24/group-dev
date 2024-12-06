@@ -25,6 +25,6 @@ class NewsController {
     public function delete() {
         include APP_ROOT . '/config/Auth.php';
         $newsModel = new News();
-         // viết logic
+        $newsModel->getAllNews();
     }
 }
