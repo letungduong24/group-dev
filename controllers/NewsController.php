@@ -16,7 +16,8 @@ class NewsController {
     public function update() {
         include APP_ROOT . '/config/Auth.php';
         $newsModel = new News();
-         // viết logic
+        $new = $newsModel->getOneNew($_GET['id']);
+        include APP_ROOT . '/views/admin/news/edit.php'; 
     }
     public function delete() {
         include APP_ROOT . '/config/Auth.php';
