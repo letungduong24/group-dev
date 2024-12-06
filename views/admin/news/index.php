@@ -22,7 +22,7 @@
                 <tr>
                     <th scope="row"><?php echo $new['id'] ?></th>
                     <td><?php echo $new['title'] ?></td>
-                    <td><?php echo $new['body'] ?></td>
+                    <td><?php echo $new['content'] ?></td>
                     <td><?php echo $new['image'] ?></td>
                     <td>
                         <div class="action-news d-flex">
