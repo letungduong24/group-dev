@@ -24,4 +24,5 @@ class News {
         $stmt->bind_param('ssss', $title, $content, $image, $id);
         $stmt->execute();
     }
+    
 }
